@@ -1,8 +1,8 @@
 import axios from 'axios';
 import setupAxiosInterceptors from './axiosConfig';
 
-// Use the API Gateway URL from environment variables
-const API_BASE_URL = import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
+// Use the API Gateway URL from runtime config or environment variables
+const API_BASE_URL = window.ENV?.VITE_API_GATEWAY_URL || import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
 
 // Create the base API client
 const apiClient = axios.create({

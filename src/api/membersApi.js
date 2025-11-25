@@ -1,7 +1,7 @@
 import axios from 'axios';
 import setupAxiosInterceptors from './axiosConfig';
 
-const API_BASE_URL = import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
+const API_BASE_URL = window.ENV?.VITE_API_GATEWAY_URL || import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
 const api = setupAxiosInterceptors(axios.create({
   baseURL: API_BASE_URL,
 }));

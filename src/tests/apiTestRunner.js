@@ -1,8 +1,8 @@
 // Frontend API Test Runner
 import * as api from '../api';
 
-// API Base URL from environment variables
-const API_BASE_URL = import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
+// API Base URL from runtime config or environment variables
+const API_BASE_URL = window.ENV?.VITE_API_GATEWAY_URL || import.meta.env.VITE_API_GATEWAY_URL || 'http://localhost:8000';
 
 // Simple color functions for browser console (using CSS styling)
 class Colors {

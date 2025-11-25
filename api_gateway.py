@@ -33,24 +33,17 @@ app = FastAPI(
     docs_url="/docs"
 )
 
-# Add CORS middleware - MUST be before routes
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-        "*"  # Allow all origins during development - remove in production
-    ],
-    allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
-    allow_headers=["*"],
-    expose_headers=["Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers", "X-User-Id", "Authorization"],
-    max_age=3600,
-)
+# CORS is handled by the Ingress Controller - no need to add CORS middleware here
+# Keeping this commented to avoid double CORS headers
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=False,
+#     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"],
+#     allow_headers=["*"],
+#     expose_headers=["*"],
+#     max_age=3600,
+# )
 
 # Service registry - mapping of service names to their base URLs
 SERVICE_REGISTRY = {
