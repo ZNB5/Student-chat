@@ -1,0 +1,322 @@
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  border-right: 1px solid #ebedef;
+  width: 280px;
+  min-width: 280px;
+}
+
+.thread-list.dark {
+  background: #2c2f33;
+  border-right-color: #202225;
+  color: #dbdee1;
+}
+
+.thread-list.light {
+  background: white;
+  border-right-color: #ebedef;
+  color: #2c2f33;
+}
+
+.thread-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .thread-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.thread-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.create-thread-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #72767d;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.dark .create-thread-btn {
+  color: #b5bac1;
+}
+
+.create-thread-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.08);
+  color: #2c2f33;
+}
+
+.dark .create-thread-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.08);
+  color: #dbdee1;
+}
+
+.create-thread-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.thread-list-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.thread-list-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.thread-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thread-list-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.dark .thread-list-container::-webkit-scrollbar-thumb {
+  background: #404249;
+}
+
+.thread-list-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+.dark .thread-list-container::-webkit-scrollbar-thumb:hover {
+  background: #505259;
+}
+
+.thread-list-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.thread-list-empty p {
+  margin: 8px 0 0 0;
+  font-size: 14px;
+}
+
+.threads {
+  padding: 8px 0;
+}
+
+.thread-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.thread-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.dark .thread-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.thread-item.active {
+  background: #7289da;
+  color: white;
+}
+
+.thread-item.active .thread-icon,
+.thread-item.active .thread-status {
+  color: inherit;
+}
+
+.dark .thread-item.active {
+  background: #5b6edb;
+}
+
+.thread-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.thread-icon {
+  flex-shrink: 0;
+  color: #72767d;
+}
+
+.thread-item.active .thread-icon {
+  color: white;
+}
+
+.thread-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.thread-title {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.thread-status {
+  font-size: 12px;
+  opacity: 0.7;
+  text-transform: capitalize;
+}
+
+.thread-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.thread-item:hover .thread-actions,
+.thread-item.active .thread-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #72767d;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+.thread-item.active .action-btn {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.action-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.thread-item.active .action-btn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.action-btn.delete:hover:not(:disabled) {
+  color: #f04747;
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.theme-toggle-btn,
+.logout-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #72767d;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+
+.thread-list.dark .theme-toggle-btn,
+.thread-list.dark .logout-btn {
+  color: #b5bac1;
+}
+
+.theme-toggle-btn:hover,
+.logout-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #2c2f33;
+}
+
+.thread-list.dark .theme-toggle-btn:hover,
+.thread-list.dark .logout-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #dbdee1;
+}
+
+.logout-btn:hover {
+  color: #f04747;
+}
+
+.thread-list.dark .logout-btn:hover {
+  color: #d83c3c;
+}
+
+.thread-footer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.thread-list.dark .thread-footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .thread-list {
+    width: 240px;
+    min-width: 240px;
+  }
+
+  .thread-title {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .thread-list {
+    width: 200px;
+    min-width: 200px;
+  }
+
+  .thread-header {
+    padding: 10px 12px;
+  }
+
+  .thread-item {
+    padding: 6px 10px;
+    margin: 0 4px;
+  }
+}
